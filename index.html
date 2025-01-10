@@ -4,24 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de compras</title>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body> 
-    <p id="paragrafo">Você digitou:</p>     
-    <p id="outroParagrafo">Outro P</p>
-    
-    <button onclick="alert('Salvo com sucesso!')">Salvar</button>
-    <button onclick="alterarP()">Clik aqui para alterar o Texto do primeiro P</button>
+    <div class="container">
+        <h1>Lista de compras</h1>
+        <p class="subtitle">Facilite sua ida ao supermercado!</p>
 
-    <br>
-    <h2>Lista de habitos saudáveis</h2>
-    <ol id="listaQ">
-        <li>Beber água</li>
-        <li>Dormir bem</li>
-        <li>Comer frutas</li>
-        <li>Praticar atividades fisicas</li>
-    </ol>
+        <div class="form">
+            <input type="text" placeholder="Digite o nome do item">             
+            <!-- <input type="checkbox"> exemplo  -->
+            <!-- <input type="password"> exemplo  -->
+            <input type="number" placeholder="Qtd" min="1"> <!-- min para limitar o minimo de 1  -->
+            <button>Adicionar Item</button>
+        </div>
 
-    <button onclick="adicionarHabito()">Adicionar Hábito</button>
+        <ul class="lista">
+            <li>Item</li>
+        </ul>
+
+        <div class="adctions">
+            <button class="clean">Limpar lista</button>
+            <button class="clean-buy">limpar comprados</button>
+        </div>
+
+    </div>
+
 
     <script src="script/script.js"></script>
 
