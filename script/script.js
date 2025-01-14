@@ -20,6 +20,9 @@ function adicionarItem(){
     /// || 1 = quando não preecher a quantidade já adiciona 1 na quantidade
 
     listaDeCompras.push(novoItem)
+
+    salvarDados()
+    
     
     atualizarInterface()
     itemInput.value = ""            /// para apagar o imput quando eu digitar um novo item
@@ -30,11 +33,13 @@ function adicionarItem(){
 
 function removerItem(id) {
     listaDeCompras = listaDeCompras.filter((item) => item.id != id)
+    salvarDados()
     atualizarInterface()
 }
 
 function limparLista() {
     listaDeCompras = []
+    salvarDados()
     atualizarInterface()
 }
 
@@ -58,29 +63,42 @@ function atualizarInterface(){
 function toggleItem(id) {
     const item = listaDeCompras.find((item) => item.id == id)
     item.comprado = !item.comprado
-    console.log(item)
+    salvarDados()
+    //// console.log(item)
 }
 
 function limparComprados(){
     listaDeCompras = listaDeCompras.filter((item) => item.comprado != true)
     atualizarInterface()
+    salvarDados()
 }
 
+//// tratamento para aceitar Enter já adiciona item
+document.getElementById("item").addEventListener("keypress", function(e){
+    if(e.key === "Enter"){
+        adicionarItem()
+    }
+})
 
+//// tratamento para aceitar Enter já adiciona qtde
+document.getElementById("quantidade").addEventListener("keypress", function(e){
+    if(e.key === "Enter"){
+        adicionarItem()
+    }
+})
 
+function carregarDados(){
+    const dados = localStorage.getItem("listaDeCompras") //  nome listaDeCompras tem que estar igual ao criado no localStorage
+    if(dados){
+        listaDeCompras = JSON.parse(dados)
+        atualizarInterface()
+    }
+}
 
+function salvarDados(){
+    localStorage.setItem("listaDeCompras", JSON.stringify(listaDeCompras))
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+carregarDados()
 
 //  listaDeCompras = listaDeCompras.filter((item) => item.comprado != true)
