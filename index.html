@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de compras</title>
-    <link rel="stylesheet" href="styles/styles.css">
+
+    <link rel="stylesheet" href="styles/style.css">
+    
 </head>
-<body> 
+
+<body>
     <div class="container">
         <h1>Lista de compras</h1>
         <p class="subtitle">Facilite sua ida ao supermercado!</p>
 
         <div class="form">
-            <div>
-                <input type="text" placeholder="Digite o nome do item">             
-                <!-- <input type="checkbox"> exemplo  -->
-                <!-- <input type="password"> exemplo  -->
-                <input type="number" placeholder="Qtd" min="1"> <!-- min para limitar o minimo de 1  -->
+
+            <div class="inputGroup">
+                <input id="item" type="text" placeholder="Digite o nome do item">
+                <input id="quantidade" type="number" placeholder="Qtd" min="1">
             </div>
 
-            <button id="add">Adicionar Item</button>
-
+            <button id="add" onclick="adicionarItem()">Adicionar Item</button>
         </div>
 
         <ul class="lista"></ul>
 
-        <div class="adctions">
-            <button class="clean">Limpar lista</button>
-            <button class="clean-buy">limpar comprados</button>
+        <div class="actions">
+            <button class="clean" onclick="limparLista()">Limpar lista</button>
+            <button class="clean-buy" onclick="limparComprados()">Limpar comprados</button>
         </div>
-
     </div>
 
-
     <script src="script/script.js"></script>
-
 </body>
+
 </html>
