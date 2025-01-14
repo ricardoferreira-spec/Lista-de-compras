@@ -79,7 +79,7 @@ h1 {
 }
 
 .inputGroup {
-    display: flex;
+    display: flex; /* coloca um item do lado do outro*/
     gap: 5px;
     margin-bottom: 10px;
     margin-top: 5px;
@@ -113,8 +113,23 @@ li p {
     margin-left: 5px;
 }
 
+@media (max-width: 800px) {  
+    body{
+        background-color: red; /*quando o tamanho da tela for menor que 800 altera a cor para RED*/
+    }        
+    #item{
+        width: 95%;
+    }
 
+    #quantidade{
+        width: 95%;
+    }
 
+    .inputGroup{
+        flex-direction: column; /*quando o tamanho da tela for menor que 800 o campo QTDE vai para baixo do campo ITEM*/
+    }
+
+}
 
 
 
